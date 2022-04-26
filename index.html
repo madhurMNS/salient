@@ -979,10 +979,10 @@
                   <h5 class="subscription-error"></h5>
                 <!-- Email input -->
                 <div class="form-group newsletter-field">
-                  <input type="email" name="EMAIL" class="form-control" id="subscriber-email" placeholder="jane.doe@example.com">
+                  <input type="email" name="EMAIL" id="EMAIL" class="form-control" id="subscriber-email" placeholder="jane.doe@example.com">
                 </div>
                 <!-- Subscribe button -->
-                <button type="submit" id="subscribe-button" class="btn btn-sm btn-dark">Subscribe</button>
+                <button type="submit" id="subscribe-button" class="btn btn-sm btn-dark" onClick="newsLetterOnclick()">Subscribe</button>
               </form>
             </div> <!-- end col-sm-6 -->
           </div> <!-- end row -->
@@ -1098,7 +1098,7 @@
                   
                   <!-- submit button -->
                   <div class="form-group">
-                    <input type="submit" name="submit" value="Send message" id="submit" class="btn btn-sm btn-dark">
+                    <input type="submit" name="submit" value="Send message" id="submit" class="btn btn-sm btn-dark" onclick="validateGetInTouch()">
                   </div>
 
                   <div id="alert"></div>
@@ -1189,6 +1189,54 @@
   <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script src="assets/js/jquery.gmaps.js"></script>
   <script src="assets/js/main.js"></script>
+
+  <script>
+    function validateGetInTouch()
+    {
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let message = document.getElementById("message").value;
+
+      if (name.length == 0)
+      {
+        alert("Plaease enter name");
+      }
+      else if (email.length == 0)
+      {
+        alert("Please enter email")
+      }
+      else if (message.length == 0)
+      {
+        alert("Plaease enter a message");
+      }
+      else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+      {
+        alert("Hello " + name + "\nwe have received your message we will contact you soon.")
+      }
+      else
+      {
+        alert("Please enter correct email")
+      }
+    }
+
+    function newsLetterOnclick()
+    {
+      let email = document.getElementById("EMAIL").value;
+
+      if (email.length == 0)
+      {
+        alert("Please enter email")
+      }
+      else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+      {
+        alert("you have subscribed to the news letter")
+      }
+      else
+      {
+        alert("Please enter correct email")
+      }
+    }
+  </script>
 
 </body>
 </html>

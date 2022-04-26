@@ -187,9 +187,9 @@ $(document).ready(function($) {
         $("#alert").slideUp(750,function() {
             $('#alert').hide();
 
-        $('#submit')
-            .after('<img src="../images/ajax-loader.GIF" class="contactloader" />')
-            .attr('disabled','disabled');
+        // $('#submit')
+        //     .after('<img src="../images/ajax-loader.GIF" class="contactloader" />')
+        //     .attr('disabled','disabled');
 
         $.post(action, {
             name: $('#name').val(),
